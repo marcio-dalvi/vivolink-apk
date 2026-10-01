@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalar VivoLink</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            margin: 0 auto 24px;
+            background: #667eea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+        .icon svg { width: 60px; height: 60px; color: white; }
+        h1 { color: #1a1a2e; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { color: #6b7280; font-size: 16px; margin-bottom: 32px; }
+        .info-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+            padding: 16px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .info-item { text-align: center; }
+        .info-value { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+        .info-label { font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            justify-content: center;
+        }
+        .btn-download:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(102, 126, 234, 0.5); }
+        .btn-download:active { transform: translateY(0); }
+        .btn-download:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-download svg { width: 24px; height: 24px; }
+        .note { margin-top: 20px; font-size: 13px; color: #9ca3af; line-height: 1.5; }
+        .note strong { color: #6b7280; }
+        .pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4); } 50% { box-shadow: 0 8px 32px rgba(102, 126, 234, 0.7); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon pulse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </div>
+        <h1>VivoLink</h1>
+        <p class="subtitle">Toque no botão abaixo para baixar e instalar o aplicativo</p>
+        
+        <div class="info-row">
+            <div class="info-item">
+                <div class="info-value">14.3 MB</div>
+                <div class="info-label">Tamanho</div>
+            </div>
+            <div class="info-item">
+                <div class="info-value">Android</div>
+                <div class="info-label">Plataforma</div>
+            </div>
+        </div>
+
+        <a id="downloadBtn" class="btn-download" href="VivoLink.apk" download="VivoLink.apk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Baixar APK</span>
+        </a>
+
+        <p class="note">
+            <strong>Nota:</strong> Após o download, abra o arquivo na pasta "Downloads" do seu celular. Se solicitado, permita a instalação de apps de fontes desconhecidas nas configurações de segurança.
+        </p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('downloadBtn');
+        btn.addEventListener('click', function(e) {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;animation:spin 1s linear infinite"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/></svg> Baixando...';
+            this.style.pointerEvents = 'none';
+            @keyframes spin { to { transform: rotate(360deg); } }
+        });
+    </script>
+</body>
+</html>
